@@ -1,0 +1,83 @@
+.titlebox {
+    font-size: 20px;
+    color:rgb(115, 115, 145)
+}
+.orgbox{
+    width: 70%;
+    height:auto;
+    border: none;
+    border-color: gainsboro;
+    box-shadow: 0 0 11px rgba(33,33,33,.1);
+}
+.iconbox {
+    background-color: rgba(218, 220, 226, 0.59);
+}
+.labelbox {
+    width: 12%;
+    height: auto;
+}
+.empty {
+    box-shadow: none;
+    border: none;
+    width:27%;
+}
+.featurebox {
+    width:27%;
+    height: 100px;
+    box-shadow: 0 0 11px rgba(33,33,33,.1); 
+    border: none;
+}
+.featurebox:hover {
+    background-color: rgba(219, 224, 241, 0.59);
+}
+  .rightbox {
+    width:25%;
+    
+    background:rgb(243, 243, 243);
+    font-size: large;
+    border:none;
+    color:rgb(34, 56, 10)
+}
+  .leftbox {
+    width:80%;
+    height: auto;
+    border-color: rgb(197, 190, 197);
+}
+.analysisbox {
+    background-color: rgb(255, 255, 255);
+    color:rgb(47, 47, 49);
+    width:30%;
+    box-shadow: 0 0 11px rgba(33,33,33,.1); 
+}
+.genericbox {
+    box-shadow: 0 0 11px rgba(35, 25, 70, 0.1); 
+}
+.sidepanelseperators {
+    box-shadow: 0 0 11px rgba(33,33,33,.1); 
+    height:40px;
+    font-weight: bold; 
+    color:white
+}
+.hlinetext{
+    font-weight: bold;
+}
+.headerbox {
+    
+    font-weight: bold;
+    color:white;
+    font-size: medium;
+    height:30px;
+    
+}
+.svgcontainer {
+    
+    height:max-content;
+    background-color: white;
+    border:0.1em;
+
+}
+.titletext {
+    font-size: large;
+    color: rgb(39, 38, 39);
+    font-weight: bold;
+}

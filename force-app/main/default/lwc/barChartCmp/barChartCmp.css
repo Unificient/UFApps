@@ -1,0 +1,11 @@
+:host rect.mybar {
+    fill:red;
+    color:red;
+    stroke:red;
+}
+.orgbox{
+    box-shadow: 0 0 11px rgba(33,33,33,.1); 
+    height:220px;
+    background-color: rgb(251, 253, 255);
+
+}
