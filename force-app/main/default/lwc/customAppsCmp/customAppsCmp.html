@@ -1,0 +1,103 @@
+<template>
+        
+    <div class="slds-card slds-m-top_large" style="background-color: rgb(246, 249, 253);">
+        <div class="slds-grid">    
+            <div class="slds-box leftbox">
+                    <div class="slds-text-title_caps slds-m-top_small slds-m-left_small textsetttings">Apex Usage By Feature</div>
+                    <c-bar-chart-cmp objectdata={summary}></c-bar-chart-cmp>
+            </div>
+            <div class="slds-box analysisbox slds-m-left_medium">    
+                    <div class="slds-text-title_caps slds-m-top_small slds-m-left_small textsetttings">Performance Scores By Feature</div>
+                        <!--<c-donut-chart-cmp summaryinput={summary}></c-donut-chart-cmp>-->
+                        <c-bar-chart-cmp objectdata={summary} ></c-bar-chart-cmp>
+            </div>
+        </div>       
+    </div>
+    
+    <div class="slds-card slds-m-top_large " style="background-color: rgb(246, 249, 253);">
+        <div class="slds-grid">    
+            
+            <div class="slds-box leftbox" style="width:75%">    
+                    <div class="slds-text-title_caps slds-m-top_small slds-m-bottom_medium slds-m-left_small textsettings">Top Underperforming Apex Classes</div>
+                        
+                        <div class="slds-col" style="border-color: rgb(88, 99, 110);" >
+                            <lightning-datatable
+                                data={classdata}
+                                columns={classcolumns}
+                                key-field="id"
+                                onrowselection={getSelectedName}>
+                            </lightning-datatable>
+                        </div>
+                        <div class="slds-text-title_caps slds-m-top_small slds-m-left_small textsettings">Select a Class for Additional Analysis</div>
+            </div>
+            <div class="slds-box analysisbox" style="width:25%;background-color: rgb(33, 42, 68);">
+                <div class="slds-text-title_caps slds-m-top_small slds-m-left_small textsettings" style="color:white">Search Any Apex Class, press any key</div>
+                <div class="slds-col slds-m-top_large">
+                    <div onkeyup={handleKeyUp}>
+                        <lightning-input
+                            name="enter-search"
+                            type="search"
+                        ></lightning-input>
+                    </div>
+                    </div>
+                    
+        </div>
+        </div>       
+    </div>
+    <template if:true={showdebug}>
+    <div class="slds-card slds-m-top_large" style="background-color: rgb(246, 249, 253);">
+        <div class="slds-grid">    
+                <div class="slds-box leftbox">
+                    <div class="slds-text-title_caps slds-m-top_small slds-m-left_small textsetttings">Additional Metrics for {selectedrowdata}</div>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-box slds-m-right_small slds-m-left_small">
+                            <div class="slds-text-title_caps">Number of SOQL Queries</div>
+                            <div class="slds-text-title_caps">30</div>
+                        </div>
+                        <div class="slds-box slds-m-right_small">
+                            <div class="slds-text-title_caps">Apex Execution Time</div>
+                            <div class="slds-text-title_caps">1020</div>
+                        </div>
+                        <div class="slds-box slds-m-right_small">
+                            <div class="slds-text-title_caps">Buffers</div>
+                            <div class="slds-text-title_caps">10200</div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-gutters slds-m-top_medium">
+                        <div class="slds-box slds-m-right_small slds-m-left_small">
+                            <div class="slds-text-title_caps">Database Time</div>
+                            <div class="slds-text-title_caps">102</div>
+                        </div>
+                        <div class="slds-box">
+                            <div class="slds-text-title_caps">Call Out Time</div>
+                            <div class="slds-text-title_caps">102</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-box analysisbox slds-m-left_medium">    
+                    <div class="slds-text-title_caps slds-m-top_small slds-m-left_small textsetttings">Next Steps</div>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-box slds-m-right_small slds-m-left_small">
+                            <div class="slds-text-title_caps">Create a debug log</div>
+                        </div>
+                        <div class="slds-box slds-m-right_small">
+                            <div class="slds-text-title_caps">Read Documentation</div>
+                        </div>
+                        <div class="slds-box slds-m-right_small">
+                            <div class="slds-text-title_caps">Create an investigation</div>
+                        </div>
+                        
+                    </div>    
+                    
+                        <!--<c-donut-chart-cmp summaryinput={summary}></c-donut-chart-cmp>-->
+                </div>
+            </div>       
+        </div>
+    </template>
+            <div class="slds-col slds-m-bottom_medium slds-m-top_medium">
+                <div class="titletext">
+                    Learn more 
+                </div>
+                <div class="slds-text-title_caps">Articles to help you learn more </div>
+            </div> 
+</template>

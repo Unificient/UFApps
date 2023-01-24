@@ -1,0 +1,28 @@
+<template>
+        
+    <div class="slds-card slds-m-top_large" style="background-color: rgb(246, 249, 253);">
+      <div class="slds-grid">
+        <div class="slds-col leftbox">
+                    <div class="slds-text-title_caps slds-m-top_small slds-m-left_small textsetttings">Integrations overview Map</div>
+                    <c-business-map onselect={handleNotify} orgmap={orgmapdata}></c-business-map>
+          </div>
+          <div class="slds-col analysisbox" style="width:25%;background-color: rgb(33, 42, 68);">
+
+          </div>
+        </div>
+      
+      <div class="slds-col slds-m-bottom_medium slds-m-top_medium">
+        <div class="slds-text-title_caps">Custom Webservices Top Requests</div>
+    </div>     
+    <div class="slds-box table">
+        <div class="slds-col slds-m-bottom_small">
+                <lightning-datatable
+                    data={pagedata}
+                    columns={pagefields}
+                    key-field="id">
+                </lightning-datatable>
+            </div>
+        </div>
+    </div>
+    <div class="slds-text-title_caps slds-m-top_medium">Articles to help you learn more </div> 
+</template>

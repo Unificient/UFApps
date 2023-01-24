@@ -1,0 +1,88 @@
+.titlebox {
+    font-size: 20px;
+    color:rgb(115, 115, 145)
+}
+.textsetttings {
+    font-size: 15px;
+    color:rgb(33, 42, 68);
+}
+.textinside {
+    font-size: 12px;
+}
+.orgbox{
+    box-shadow: 0 0 11px rgba(33,33,33,.1); 
+    height:50px;
+    width:35%;
+    background-color: rgb(246, 249, 253);
+
+}
+.iconbox {
+    background-color: rgba(218, 220, 226, 0.59);
+}
+.orgbox:hover {
+    background-color: rgba(219, 224, 241, 0.59);
+}
+  .rightbox {
+    width:50%;
+    background:rgb(243, 243, 243);
+    font-size: large;
+    border:none;
+    color:rgb(34, 56, 10)
+}
+  .leftbox {
+    width:50%;
+    background-color: white;
+    border-style:solid;
+    border-color: rgb(197, 190, 197);
+    border:1px;
+    box-shadow: 0 0 11px rgba(33,33,33,.1); 
+}
+.mapbox {
+    width:75%;
+    font-size: large;
+    border-style:solid;
+    background-color: white;
+    border:1px;
+    box-shadow: 0 0 11px rgba(33,33,33,.1); 
+    color:white;
+}
+.analysisbox {
+    font-size: medium;
+    border-style:solid;
+    background-color: white;
+    
+    width:50%;
+    box-shadow: 0 0 11px rgba(33,33,33,.1); 
+}
+.genericbox {
+    box-shadow: 0 0 11px rgba(35, 25, 70, 0.1); 
+}
+.sidepanelseperators {
+    box-shadow: 0 0 11px rgba(33,33,33,.1); 
+    height:40px;
+    font-weight: bold; 
+    color:white
+}
+.hlinetext{
+    font-weight: bold;
+}
+.headerbox {
+    
+    font-weight: bold;
+    color:white;
+    font-size: medium;
+    height:30px;
+    
+}
+.svgcontainer {
+    
+    height:max-content;
+    background-color: white;
+    border:0.1em;
+
+}
+.titletext {
+    font-size: large;
+    color: rgb(39, 38, 39);
+    font-weight: bold;
+}

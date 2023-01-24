@@ -7,6 +7,10 @@ export default class BarChartCmp extends LightningElement {
     @api chartheight
     @api chartwidth
     @api eptdata
+    clicked = true
+    netrtt
+    netdownlink
+    prevpage
     renderedCallback() {
         if (this.d3Initialized) {
             return;
@@ -109,7 +113,7 @@ var colors = d3.scaleQuantile()
         .attr("y", data => scaleY(data.name))
         .attr("x", 0.5)
         .attr("fill", function(d){
-            if (d.rt > 3.0){
+            if (d.ept > 3.0){
                 return "#F3B2A5"
             }
             else {
@@ -121,7 +125,7 @@ var colors = d3.scaleQuantile()
       
 }
 clickaction(d) {
-    
+    console.log("clickaction:::"+d)
     this.dispatchEvent(new CustomEvent('handleclick', { detail: d, bubbles: true }))
 }
 handleclick(event) {
@@ -131,7 +135,7 @@ handleclick(event) {
     // do dome stuff with this detail
     this.clicked = true
     this.netrtt = eptobj.network.rtt
-    this.netdownlink = eptobj.network.downlink
+    //this.netdownlink = eptobj.network.downlink
     this.prevpage = eptobj.previousPage.location
     this.dispatchEvent(new CustomEvent('productclicked', { detail: eptobj, bubbles: true }))
     }

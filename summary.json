@@ -1,47 +1,47 @@
 {"summary": 
   {
-    "UserExperience": 
+    "userExperience": 
     [
-      { "Name" : "PageNavigation",
-        "TotalNoofPages" : 10,
-        "PagesOptimized" : 4,
-        "PagesNotOptimized" : 6
+      { "name" : "PageNavigation",
+        "totalNoofPages" : 10,
+        "pagesOptimized" : 4,
+        "pagesNotOptimized" : 6
      },
      {
-        "Name" : "RecordCreation",
-        "TotalNoofPages" : 10,
-        "PagesOptimized" : 5,
-        "PagesNotOptimized" : 5
+        "name" : "RecordCreation",
+        "totalNoofPages" : 10,
+        "pagesOptimized" : 5,
+        "pagesNotOptimized" : 5
      },  
      {  
-       "Name" : "Adoption",
-       "TotalNoofPages" : 10,
-       "PagesOptimized" : 7,
-       "PagesNotOptimized" : 5
+       "name" : "Adoption",
+       "totalNoofPages" : 10,
+       "pagesOptimized" : 7,
+       "pagesNotOptimized" : 5
      }
     ]
   ,
   
-   "BusinessLogic" :
+   "businessLogic" :
    [ { 
-        "Name" : "ApexClasses",
-        "TotalNoofPages"    : 8,
-        "PagesOptimized" : 4,
-        "PagesNotOptimized" : 4
+        "name" : "ApexClasses",
+        "totalNoofPages"    : 8,
+        "pagesOptimized" : 4,
+        "pagesNotOptimized" : 4
       },
       { 
-        "Name" :  "Triggers",
-        "TotalNoofPages"    : 18,
-        "PagesOptimized" : 14,
-        "PagesNotOptimized" : 4
+        "name" :  "Triggers",
+        "totalNoofPages"    : 18,
+        "pagesOptimized" : 14,
+        "pagesNotOptimized" : 4
       }
    ],
    
-     "DataGoverness" :
+     "dataGoverness" :
      [{
 
      }],
-     "AutomatedProcess":
+     "automatedProcess":
      [{
 
      }]

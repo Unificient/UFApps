@@ -1,311 +1,319 @@
 <template>
-               <!-- <div class="slds-col">
-                        <div class="slds-col slds-size_1-of-3 slds-m-left_small">
-                            <div class="slds-form-element">
-                                <label class="slds-form-element__label" for="select-01">Select An Instance</label>
-                                <div class="slds-form-element__control">
-                                <div class="slds-select_container">
-                                    <select class="slds-select" id="select-01">
-                                    <option value="">Customer Support</option>
-                                    <option>Sales Org</option>
-                                    <option>Loan Processing</option>
-                                    <option>Finance</option>
-                                    </select>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                </div> -->
-    
-            <div class="slds-grid slds-gutters">
-                <div class="slds-col slds-size_1-of-3">
-                    <div class="titletext">
-                        Organization Overview
-                    </div>
-                    <div class="slds-text-title_caps">A snapshot of your business process optimization</div>
-                </div>
-                <div class="slds-col slds-size_1-of-3">
-
-                </div>
-                <div class="slds-col slds-size_1-of-3">
-                            <div class="slds-form-element">
-                                <label class="slds-form-element__label" for="select-01">Select An Instance</label>
-                                <div class="slds-form-element__control">
-                                <div class="slds-select_container">
-                                    <select class="slds-select" id="select-01">
-                                    <option value="">Customer Support</option>
-                                    <option>Sales Org</option>
-                                    <option>Loan Processing</option>
-                                    <option>Finance</option>
-                                    </select>
-                                </div>
-                                </div>
-                            </div>
-                </div>
-            </div>
-            <div class="slds-col slds-m-top_small">
-                <div class="slds-grid">
-                    <div class="slds-box orgbox slds-m-right_small">
-                        <!-- Row 0 -->
-                        <div class="slds-grid">
-                            <div class="slds-col labelbox">
-                                <div class="slds-text-title_caps  slds-align_absolute-center slds-m-top_large slds-p-top_medium">
-                                User Experience
-                                <br>
-                                Lead To Cash
-                            </div>
-                            </div>
-                            <div class="slds-box featurebox slds-m-around_x-small" onclick={showUx}>
-                                <div class="slds-text-title_caps  slds-align_absolute-center">
-                                   {row00.Experience.name}
-                                </div>
-                                <div class="slds-text-title_caps slds-m-top_small slds-align_absolute-center">
-                                    10/15 pages
-                                </div>
-                                <div class="slds-p-left_none">
-                                    <c-statusbar currentstate={row00.Experience.ept}></c-statusbar>
-                                    
-                                </div>
-                                
-                            </div>
-                            <div class="slds-box featurebox slds-m-around_x-small" onclick={showUx}>
-                                <div class="slds-text-title_caps slds-align_absolute-center">
-                                  {row01.Experience.name}
-                                </div>
-                                <div class="slds-text-title_caps slds-m-top_small slds-align_absolute-center">
-                                    1/6 records
-                                 </div>
-                                <c-statusbar currentstate={row01.Experience.ept}></c-statusbar>
-                            </div>
-                            <div class="slds-box featurebox slds-m-around_x-small" onclick={showUx}>
-                                <div class="slds-text-title_caps  slds-align_absolute-center">
-                                    Adoption 
-                                </div>
-                                <div class="slds-text-title_caps slds-m-top_small slds-align_absolute-center">
-                                    70% 
-                                </div>
-                                <c-statusbar currentstate="Bad"></c-statusbar>
-                            </div>
-                        </div>
-                         <!-- Row 1 -->
-                        <div class="slds-grid">
-                            <div class="slds-col labelbox">
-                                <div class="slds-text-title_caps slds-align_absolute-center slds-m-top_large slds-p-top_medium">
-                                    Business Logic
-                            </div>
-                            </div>
-                            <div class="slds-box featurebox slds-m-around_x-small" onclick={showUx}>
-                                <div class="slds-text-title_caps slds-align_absolute-center">
-                                  {row10.BusinessLogic.name}
-                                </div>
-                                <div class="slds-text-title_caps slds-m-top_small slds-align_absolute-center">
-                                    1/6 records
-                                 </div>
-                                <c-statusbar currentstate={row10.BusinessLogic.ept}></c-statusbar>
-                            </div>
-                           
-                            <div class="slds-box featurebox slds-m-around_x-small" onclick={showUx}>
-                                <div class="slds-text-title_caps slds-align_absolute-center">
-                                  {row11.BusinessLogic.name}
-                                </div>
-                                <div class="slds-text-title_caps slds-m-top_small slds-align_absolute-center">
-                                    1/6 records
-                                 </div>
-                                <c-statusbar currentstate={row11.BusinessLogic.ept}></c-statusbar>
-                            </div>
-                             
-
-
-                            
-                            <div class="slds-box slds-m-around_x-small empty">
-                            </div>
-                        </div>
-                         <!-- Row 2 -->
-                        <div class="slds-grid">
-                            <div class="slds-col labelbox">
-                            <div class="slds-text-title_caps slds-align_absolute-center slds-m-top_large slds-p-top_medium">
-                                Data Goverance
-                            </div>
-                            </div>
-                            <div class="slds-box featurebox slds-m-around_x-small">
-                                <c-statusbar currentstate="Bad"></c-statusbar>
-                            </div>
-                            <div class="slds-box featurebox slds-m-around_x-small">
-                                <c-statusbar currentstate="Ok"></c-statusbar>
-                            </div>
-                            <div class="slds-box empty slds-m-around_x-small">
-                               
-                            </div>
-                            
-                        </div>
-                        <!-- Row 3 -->
-                        <div class="slds-grid">
-                            <div class="slds-col labelbox">
-                            <div class="slds-text-title_caps slds-align_absolute-center slds-m-top_large slds-p-top_medium">
-                                Automated Process
-                            </div>
-                            </div>
-                            <div class="slds-box featurebox slds-m-around_x-small">
-                                <c-statusbar currentstate="Bad"></c-statusbar>
-                            </div>
-                            <div class="slds-box empty slds-m-around_x-small" >
-                               
-                            </div>
-                            <div class="slds-box empty slds-m-around_x-small" >
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slds-box analysisbox">
-                            <template if:true={showdetails}>
-                                <lightning-card class="orgbox slds-m-right_small slds-m-left_small slds-m-bottom_small">
-                                    <h4 slot="title">
-                                            <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
-                                            {toptext}
-                                    </h4>
-                                    <c-bar-chart-cmp eptdata={eptdata} chartheight={chartheight} chartwidth={chartwidth}></c-bar-chart-cmp>
-                                </lightning-card>
-                        
-                            </template>
-                            
-                            <!--  <c-donut-chart-cmp summaryinput={summary}></c-donut-chart-cmp> -->
-                           <!-- <div class="slds-text-title_caps slds-m-top_large slds-m-left_small" style="color: white;">
-                                <p>Overall usage is high in the Org. Adoption is trending well</p>
-                                <br>
-                                <p>Perforce of certain pages is low. This can lead to bad user experience and productivity.</p>
-                                <br>
-                                <p>Post release KPI are consistent with pre-release numbers</p>
-                            </div> -->
-                             
-                    </div>
-                </div>
-            </div>
-            <template if:true={noshowdetails}>
-            <div class="slds-card slds-m-bottom_medium slds-m-top_small">
-               
-                <div class="slds-grid">
-                <div class="slds-col leftbox">
-                   <!-- <c-business-map orgmap={orgmapdata}></c-business-map> -->
-                    <div class="slds-grid">
-                                <lightning-card class="orgbox slds-m-right_small slds-m-left_small slds-m-bottom_small">
-                                    <h4 slot="title">
-                                            <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
-                                               Employee Experience
-                                    </h4>
-                                    <c-bar-chart-cmp eptdata={eptdata} chartheight={chartheight} chartwidth={chartwidth}></c-bar-chart-cmp>
-                                </lightning-card>
-                            <lightning-card class="orgbox slds-m-right_small slds-m-bottom_small">
-                                <h4 slot="title">
-                                    <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
-                                        Application Performance
-                                </h4>
-                                    <div class="slds-col">
-                                        <lightning-datatable
-                                            data={apexdata}
-                                            columns={apexcols}
-                                            key-field="id"
-                                            hide-checkbox-column
-                                            show-row-number-column>
-                                        </lightning-datatable>
-                                    </div>
-                                </lightning-card>
-                    </div>
-                    <div class="slds-col">
-                        <div class="slds-grid">
-                                        <lightning-card class="orgbox slds-m-right_small slds-m-left_small">
-                                            <h4 slot="title">
-                                                <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
-                                                    Adoption 
-                                            </h4>
-                                            <c-bar-chart-cmp eptdata={createeptdata} chartheight={chartheight} chartwidth={chartwidth}></c-bar-chart-cmp>
-                                    </lightning-card>
-                                    
-                            
-                           
-                                <lightning-card class="orgbox slds-m-right_small">
-                                    <h4 slot="title">
-                                        <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
-                                           Automated Process Overview
-                                    </h4>
-                                        {prevpage}
-                                        {netrtt}
-                                        {netdownlink}
-                            
-                                    </lightning-card>
-
-                        </div>
-                    </div>
-                </div>
-                
-               
-
+    <!-- <div class="slds-col">
+             <div class="slds-col slds-size_1-of-3 slds-m-left_small">
+                 <div class="slds-form-element">
+                     <label class="slds-form-element__label" for="select-01">Select An Instance</label>
+                     <div class="slds-form-element__control">
+                     <div class="slds-select_container">
+                         <select class="slds-select" id="select-01">
+                         <option value="">Customer Support</option>
+                         <option>Sales Org</option>
+                         <option>Loan Processing</option>
+                         <option>Finance</option>
+                         </select>
                      </div>
-                </div>
-            </template>
-               <!-- <div class="slds-col slds-m-bottom_medium slds-m-top_medium">
-                    <div class="titletext">
-                        User Adoption Trend
-                    </div>
-                    <div class="slds-text-title_caps">Trend of Org usage monthly. Higher the usage higher the scale</div>
-                </div>
-                <div class="slds-card slds-m-top_large">
-                    
-                    <div class="slds-grid">
-                    <div class="slds-col">
-                        <c-line-chart-cmp dailytrend={xd1} areacolor={color2}></c-line-chart-cmp>
-                    
-                </div>
-                    <div class="slds-box rightbox">    
-                            This is the overview where all your Salesforce Orgs are display
-                            
-                             </div>
-                         </div>
-                    </div>
-                    
-                    <div class="slds-col slds-m-bottom_medium slds-m-top_medium">
-                        <div class="titletext">
-                            Integration Trend
-                        </div>
-                        <div class="slds-text-title_caps">Trend of API Org usage monthly. Higher the usage higher the scale</div>
-                    </div>
-                    <div class="slds-col slds-m-bottom_medium slds-size_1-of-3">
-                        <div class="slds-form-element">
-                            <label class="slds-form-element__label" for="select-02">Select an Integration</label>
-                            <div class="slds-form-element__control">
-                            <div class="slds-select_container">
-                                <select class="slds-select" id="select-02">
-                                <option value="">EDW(Soap API)</option>
-                                <option>Bulk Data Loads</option>
-                                <option>Workday</option>
-                                <option>SAP(Orders)</option>
-                                </select>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    <div class="slds-card">
-                      
-                        <div class="slds-grid">
-                            
-        
-                        <div class="slds-col">
-                            <c-line-chart-cmp dailytrend={xd2} areacolor={color1}></c-line-chart-cmp>
-                        </div>
-        
-                    
-                        <div class="slds-box rightbox">    
-                            
-                            
-                               
-                                This is the overview where all your Salesforce Orgs are display
-                                
-                                 </div>
-                             </div>
-                            </div> -->
-                   
-            <!--Left Box end-->
-                
-             <!--Top Gutters-->
+                     </div>
+                 </div>
+                 </div>
+     </div> -->
 
-  
+ <div class="slds-grid slds-gutters">
+     <div class="slds-col slds-size_1-of-3">
+         <div class="titletext">
+             Organization Overview
+         </div>
+         <div class="slds-text-title_caps">A snapshot of your business process optimization</div>
+     </div>
+     <div class="slds-col slds-size_1-of-3">
+
+     </div>
+     <div class="slds-col slds-size_1-of-3">
+                 <div class="slds-form-element">
+                     <label class="slds-form-element__label" for="select-01">Select An Instance</label>
+                     <div class="slds-form-element__control">
+                     <div class="slds-select_container">
+                         <select class="slds-select" id="select-01">
+                         <option value="">Customer Support</option>
+                         <option>Sales Org</option>
+                         <option>Loan Processing</option>
+                         <option>Finance</option>
+                         </select>
+                     </div>
+                     </div>
+                 </div>
+     </div>
+ </div>
+ <div class="slds-col slds-m-top_small">
+     <div class="slds-grid">
+         <div class="slds-box orgbox slds-m-right_small">
+                        <!-- Row 0 -->
+             <div class="slds-grid" style="border:1px solids red;">
+                 <div class="slds-col labelbox">
+                     <div class="slds-text-title_caps  slds-align_absolute-center slds-m-top_large slds-p-top_medium">
+                     User Experience
+                     <br>
+                     Lead To Cash
+                 </div>
+                 </div>
+                 <div class="slds-box featurebox slds-m-around_x-small" onclick={showUx}>
+                     <div class="slds-text-title_caps  slds-align_absolute-center">
+                                   {row00.Name}
+                     </div>
+                     <div class="slds-text-title_caps slds-m-top_small slds-align_absolute-center">
+                        {row00.PagesNotOptimized}/{row00.TotalNoofPages} Pages
+                     </div>
+                     <div class="slds-p-left_none">
+                                    <c-statusbar currentstate='Good'></c-statusbar>
+                                    
+                     </div>
+                     
+                 </div>
+                 <div class="slds-box featurebox slds-m-around_x-small" onclick={showUx}>
+                     <div class="slds-text-title_caps slds-align_absolute-center">
+                                  {row01.Name}
+                     </div>
+                     <div class="slds-text-title_caps slds-m-top_small slds-align_absolute-center">
+                        {row01.PagesNotOptimized}/{row01.TotalNoofRecords} Records
+                      </div>
+                                <c-statusbar currentstate='Bad'></c-statusbar>
+                 </div>
+                 <div class="slds-box featurebox slds-m-around_x-small" onclick={showUx}>
+                     <div class="slds-text-title_caps  slds-align_absolute-center">
+                         Adoption 
+                     </div>
+                     <div class="slds-text-title_caps slds-m-top_small slds-align_absolute-center">
+                         {row02.TotalPercent} %
+                     </div>
+                     <c-statusbar currentstate="Bad"></c-statusbar>
+                 </div>
+             </div>
+                         <!-- Row 1 -->
+             <div class="slds-grid">
+                 <div class="slds-col labelbox">
+                     <div class="slds-text-title_caps slds-align_absolute-center slds-m-top_large slds-p-top_medium">
+                         Business Logic
+                 </div>
+                 </div>
+                            <div class="slds-box featurebox slds-m-around_x-small" onclick={showUx}>
+                                <div class="slds-text-title_caps slds-align_absolute-center">
+                                  {row10.Name}
+                                </div>
+                                <div class="slds-text-title_caps slds-m-top_small slds-align_absolute-center">
+                                    {row10.PagesNotOptimized}/{row10.TotalNoofPages} Pages 
+                                 </div>
+                                <c-statusbar currentstate='ok'></c-statusbar>
+                            </div>
+
+                            <div class="slds-box featurebox slds-m-around_x-small" onclick={showUx}>
+                                <div class="slds-text-title_caps slds-align_absolute-center">
+                                  {row11.Name}
+                            </div>
+                                <div class="slds-text-title_caps slds-m-top_small slds-align_absolute-center">
+                                    {row11.PagesNotOptimized}/{row11.TotalNoofPages} Pages
+                            </div>
+                                <c-statusbar currentstate='Good'></c-statusbar>
+                            </div>
+                            
+                            <div class="slds-box featurebox slds-m-around_x-small" onclick={showUx}>
+                                <div class="slds-text-title_caps slds-align_absolute-center">
+                                  {row12.Name}
+                            </div>
+                                <div class="slds-text-title_caps slds-m-top_small slds-align_absolute-center">
+                                    {row12.PagesNotOptimized}/{row12.TotalNoofPages} Pages
+                            </div>
+                                <c-statusbar currentstate='Good'></c-statusbar>
+                            </div>
+                            
+                 <div class="slds-box slds-m-around_x-small empty">
+                    
+                 </div>
+             </div>
+           <!-- Row 2 -->
+             <!-- <div class="slds-grid">
+                 <div class="slds-col labelbox">
+                 <div class="slds-text-title_caps slds-align_absolute-center slds-m-top_large slds-p-top_medium">
+                     Data Goverance
+                 </div>
+                 </div>
+                 <div class="slds-box featurebox slds-m-around_x-small">
+                     <c-statusbar currentstate="Bad"></c-statusbar>
+                 </div>
+                 <div class="slds-box featurebox slds-m-around_x-small">
+                     <c-statusbar currentstate="Ok"></c-statusbar>
+                 </div>
+                 <div class="slds-box empty slds-m-around_x-small">
+                    
+                 </div>
+                 
+             </div> -->
+             <!-- Row 3 -->
+             <!-- <div class="slds-grid">
+                 <div class="slds-col labelbox">
+                 <div class="slds-text-title_caps slds-align_absolute-center slds-m-top_large slds-p-top_medium">
+                     Automated Process
+                 </div>
+                 </div>
+                 <div class="slds-box featurebox slds-m-around_x-small">
+                     <c-statusbar currentstate="Bad"></c-statusbar>
+                 </div>
+                 <div class="slds-box empty slds-m-around_x-small" >
+                    
+                 </div>
+                 <div class="slds-box empty slds-m-around_x-small" >
+                    
+                 </div>
+             </div> -->
+         </div>
+         <div class="slds-box analysisbox">
+                 <template if:true={showdetails}>
+                     <lightning-card class="orgbox slds-m-right_small slds-m-left_small slds-m-bottom_small">
+                         <h4 slot="title">
+                                 <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+                                 {toptext}
+                         </h4>
+                         <c-bar-chart-cmp eptdata={eptdata} chartheight={chartheight} chartwidth={chartwidth}></c-bar-chart-cmp>
+                     </lightning-card>
+             
+                 </template>
+                 
+                 <!--  <c-donut-chart-cmp summaryinput={summary}></c-donut-chart-cmp> -->
+                <!-- <div class="slds-text-title_caps slds-m-top_large slds-m-left_small" style="color: white;">
+                     <p>Overall usage is high in the Org. Adoption is trending well</p>
+                     <br>
+                     <p>Perforce of certain pages is low. This can lead to bad user experience and productivity.</p>
+                     <br>
+                     <p>Post release KPI are consistent with pre-release numbers</p>
+                 </div> -->
+                  
+         </div>
+     </div>
+ </div>
+ <template if:true={noshowdetails}>
+ <div class="slds-card slds-m-bottom_medium slds-m-top_small">
+    
+     <div class="slds-grid">
+     <div class="slds-col leftbox">
+        <!-- <c-business-map orgmap={orgmapdata}></c-business-map> -->
+         <div class="slds-grid">
+                     <lightning-card class="orgbox slds-m-right_small slds-m-left_small slds-m-bottom_small">
+                         <h4 slot="title">
+                                 <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+                                    Employee Experience
+                         </h4>
+                         <c-bar-chart-cmp eptdata={eptdata} chartheight={chartheight} chartwidth={chartwidth}></c-bar-chart-cmp>
+                     </lightning-card>
+                 <lightning-card class="orgbox slds-m-right_small slds-m-bottom_small">
+                     <h4 slot="title">
+                         <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+                             Application Performance
+                     </h4>
+                         <div class="slds-col">
+                             <lightning-datatable
+                                 data={apexdata}
+                                 columns={apexcols}
+                                 key-field="id"
+                                 hide-checkbox-column
+                                 show-row-number-column>
+                             </lightning-datatable>
+                         </div>
+                     </lightning-card>
+         </div>
+         <div class="slds-col">
+             <div class="slds-grid">
+                             <lightning-card class="orgbox slds-m-right_small slds-m-left_small">
+                                 <h4 slot="title">
+                                     <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+                                         Adoption 
+                                 </h4>
+                                 <c-bar-chart-cmp eptdata={createeptdata} chartheight={chartheight} chartwidth={chartwidth}></c-bar-chart-cmp>
+                         </lightning-card>
+                         
+                 
+                
+                     <lightning-card class="orgbox slds-m-right_small">
+                         <h4 slot="title">
+                             <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+                                Automated Process Overview
+                         </h4>
+                             {prevpage}
+                             {netrtt}
+                             {netdownlink}
+                 
+                         </lightning-card>
+
+             </div>
+         </div>
+     </div>
+     
+    
+
+          </div>
+     </div>
+ </template>
+    <!-- <div class="slds-col slds-m-bottom_medium slds-m-top_medium">
+         <div class="titletext">
+             User Adoption Trend
+         </div>
+         <div class="slds-text-title_caps">Trend of Org usage monthly. Higher the usage higher the scale</div>
+     </div>
+     <div class="slds-card slds-m-top_large">
+         
+         <div class="slds-grid">
+         <div class="slds-col">
+             <c-line-chart-cmp dailytrend={xd1} areacolor={color2}></c-line-chart-cmp>
+         
+     </div>
+         <div class="slds-box rightbox">    
+                 This is the overview where all your Salesforce Orgs are display
+                 
+                  </div>
+              </div>
+         </div>
+         
+         <div class="slds-col slds-m-bottom_medium slds-m-top_medium">
+             <div class="titletext">
+                 Integration Trend
+             </div>
+             <div class="slds-text-title_caps">Trend of API Org usage monthly. Higher the usage higher the scale</div>
+         </div>
+         <div class="slds-col slds-m-bottom_medium slds-size_1-of-3">
+             <div class="slds-form-element">
+                 <label class="slds-form-element__label" for="select-02">Select an Integration</label>
+                 <div class="slds-form-element__control">
+                 <div class="slds-select_container">
+                     <select class="slds-select" id="select-02">
+                     <option value="">EDW(Soap API)</option>
+                     <option>Bulk Data Loads</option>
+                     <option>Workday</option>
+                     <option>SAP(Orders)</option>
+                     </select>
+                 </div>
+                 </div>
+             </div>
+             </div>
+         <div class="slds-card">
+           
+             <div class="slds-grid">
+                 
+
+             <div class="slds-col">
+                 <c-line-chart-cmp dailytrend={xd2} areacolor={color1}></c-line-chart-cmp>
+             </div>
+
+         
+             <div class="slds-box rightbox">    
+                 
+                 
+                    
+                     This is the overview where all your Salesforce Orgs are display
+                     
+                      </div>
+                  </div>
+                 </div> -->
+        
+ <!--Left Box end-->
+     
+  <!--Top Gutters-->
+
+
 </template>

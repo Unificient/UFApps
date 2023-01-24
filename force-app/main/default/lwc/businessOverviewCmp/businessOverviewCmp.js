@@ -25,61 +25,95 @@ export default class businessOverviewCmp extends LightningElement {
   row01
   row10
   row11
+  summaryUserExperience
   @api color2 = "#D6EAF8"
   chartheight=300
   chartwidth=350
   connectedCallback() {
       this.createData()
      }
-  
-     parseArrayOfObjectsForDisplay(eptProcessedPagesObjectArray){
-          for(const eptProcObj in eptProcessedPagesObjectArray){
-              console.log('Way1 '+eptProcObj.Name);
-
-          }
-
-          //Processing all elements one by one without knowing name
-          eptProcessedPagesObjectArray.forEach(eptProcObj => {
-            for (let key in eptProcObj) {
-              console.log(`${key}: ${eptProcObj[key]}`)
-            }
-          })
-     }
+     
+     
 
     createData() {
     
       //UX Data
-      this.row00 =summaryUserExperience[0];
-      this.row01 ={'Experience':{'name':'RecordCreation','ept':'Ok'}}
-      this.row10 ={'BusinessLogic':{'name':'ApexClass','ept':'Good'}}
-      this.row11 = {'BusinessLogic':{'name':'Triggers','ept':'Bad'}}
-      this.summaryUserExperience = [
-        { "Name" : "PageNavigation",
-          "TotalNoofPages" : 10,
-          "PagesOptimized" : 4,
-          "PagesNotOptimized" : 6
-       },
-       {
-          "Name" : "RecordCreation",
-          "TotalNoofPages" : 10,
-          "PagesOptimized" : 5,
-          "PagesNotOptimized" : 5
-       },  
-       {  
-         "Name" : "Adoption",
-         "TotalNoofPages" : 10,
-         "PagesOptimized" : 7,
-         "PagesNotOptimized" : 5
-       }
-      ];
+      
+      this.summaryUserExperience = {"summary": 
+      {
+        "UserExperience": 
+        [
+          { "Name" : "PageNavigation",
+            "TotalNoofPages" : 10,
+            "PagesOptimized" : 4,
+            "PagesNotOptimized" : 6
+         },
+         {
+            "Name" : "RecordCreation",
+            "TotalNoofRecords" : 10,
+            "PagesOptimized" : 5,
+            "PagesNotOptimized" : 5
+         },  
+         {  
+           "Name" : "Adoption",
+           "TotalNoofPages" : 10,
+           "PagesOptimized" : 7,
+           "PagesNotOptimized" : 5,
+           "TotalPercent" : 70
+         }
+        ]
+      ,
+      
+       "BusinessLogic" :
+       [ { 
+            "Name" : "ApexClasses",
+            "TotalNoofPages"    : 8,
+            "PagesOptimized" : 4,
+            "PagesNotOptimized" : 4
+          },
+          { 
+            "Name" :  "Triggers",
+            "TotalNoofPages"    : 18,
+            "PagesOptimized" : 14,
+            "PagesNotOptimized" : 4
+          }
+       ],
+        "AutomatedProcess":
+         [{
+
+            "Name" :"AutomatedProcess",
+            "TotalNoofPages"    : 2,
+            "PagesOptimized" : 1,
+            "PagesNotOptimized" : 1
+      
+         }]
+      
+        },
+      "SummaryNumber": 1
+      }
+ 
 
 
+      this.row00 = this.summaryUserExperience.summary.UserExperience[0];
+      this.row01 =this.summaryUserExperience.summary.UserExperience[1];
+      this.row02 =this.summaryUserExperience.summary.UserExperience[2];
+      this.row10 =this.summaryUserExperience.summary.BusinessLogic[0];
+      this.row11 = this.summaryUserExperience.summary.BusinessLogic[1];
+      this.row12 = this.summaryUserExperience.summary.AutomatedProcess[0]
     
       
-      this.eptdata = [{'name':'HomePage','rt':2.4,'ux':5},
-      {'name':'Account Detail','rt':3.4,'ux':8},
-      {'name':'Contact Detail','rt':1.2,'ux':6},
-      {'name':'Oppty Detail','rt':4.8,'ux':9}]
+      // this.eptdata = [{'name':'HomePage','rt':2.4,'ux':5},
+      // {'name':'Account Detail','rt':3.4,'ux':8},
+      // {'name':'Contact Detail','rt':1.2,'ux':6},
+      // {'name':'Oppty Detail','rt':4.8,'ux':9}]
+
+      this.eptdata = [{'name':'HomePage','rt':2.4,'network':{ 'rtt': 250, 'downlink': 2.45, 'maxAllowedParallelXHRs': 6},'previousPage': { 'location': 'NA' }},
+      {'name':'Account Home','rt':0.4,'network':{ 'rtt': 4501, 'downlink': 2.45, 'maxAllowedParallelXHRs': 6},'previousPage': { 'location': 'Homepage' }},
+      {'name':'Account Detail','rt':3.4,'network':{ 'rtt': 1250, 'downlink': 2.45, 'maxAllowedParallelXHRs': 6},'previousPage': { 'location': 'AccountDetail' }},
+      {'name':'Contact Home','rt':0.7,'network':{ 'rtt': 5250, 'downlink': 2.45, 'maxAllowedParallelXHRs': 6},'previousPage': { 'location': 'OpptyDetail' }},
+      {'name':'Contact Detail','rt':1.2},
+      {'name':'Oppty Home','rt':0.9},
+      {'name':'Oppty Detail','rt':4.8}]
     
       this.apexdata = [{'name':'ApexClass1','rt':2.4},
       {'name':'AccountClass','rt':1.4},
@@ -105,7 +139,10 @@ export default class businessOverviewCmp extends LightningElement {
         {"date": '2/25/2022', "count": 281}
       ]
     }
-    showUx(evt) {
+    
+  
+    showUx(evt) 
+    {
       this.showdetails=true
       this.toptext = "Employee Experience"
     }

@@ -1,0 +1,75 @@
+<template>
+   <!-- <lightning-record-edit-form object-api-name="scaletest__c">
+        <lightning-messages>
+        </lightning-messages>
+        <lightning-input-field field-name="scaleproject__c">
+        </lightning-input-field>
+        <lightning-input-field field-name="testdatetime__c">
+        </lightning-input-field>
+        <lightning-input-field field-name="testduration__c">
+        </lightning-input-field>
+        <lightning-input-field field-name="userload__c">
+        </lightning-input-field>
+            <lightning-button 
+                class="slds-m-top_small slds-float_right"
+                type="submit"
+                label="Create new test">
+            </lightning-button>
+    </lightning-record-edit-form> -->
+    <div class="slds-card">
+        <div class="slds-grid">
+            <div class="slds-box slds-m-right_medium" onproductclicked={handleProductClicked}  style="width:70%">
+                <lightning-card>
+                    <h3 slot="title">
+                        <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+                            Experience Chart
+                    </h3>
+                    <c-bar-chart-cmp eptdata={eptdata} chartheight={chartheight} chartwidth={chartwidth} ></c-bar-chart-cmp>
+                </lightning-card>
+            </div>
+            <template if:true={clicked}>
+                <div class="slds-col" style="width:30%;">
+                    <div class="slds-box slds-m-bottom_medium orgbox">
+                        <lightning-card>
+                            <h3 slot="title">
+                                <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+                                    Overview
+                            </h3>
+                                    {prevpage}
+                                    {netrtt}
+                                    {netdownlink}
+                    </lightning-card>
+                    
+            </div>
+            <div class="slds-box orgbox">
+                <lightning-card>
+                    <h3 slot="title">
+                        <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+                            Observations
+                    </h3>
+                            {prevpage}
+                            {netrtt}
+                            {netdownlink}
+                        
+                          
+                    </lightning-card>
+            
+            </div>
+            <div class="slds-box slds-m-top_medium orgbox">
+                <lightning-card>
+                    <h3 slot="title">
+                        <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+                            Recommendations
+                    </h3>
+                            {prevpage}
+                            {netrtt}
+                            {netdownlink}
+                </lightning-card>
+    
+            </div>
+                </div>
+                
+            </template>
+        </div>
+    </div>
+</template>

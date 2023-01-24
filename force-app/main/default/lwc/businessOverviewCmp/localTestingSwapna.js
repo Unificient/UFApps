@@ -52,6 +52,8 @@ var jsonObject = {"summary":
 
      
 function parseArrayOfObjectsForDisplay(eptProcessedPagesObjectArray){
+
+        var rows = [];
         //Way1 
         // for(var eptProcObj of eptProcessedPagesObjectArray){
         //     console.log('\n WAY 1 - Name:'+eptProcObj.Name + ',TotalNoofPages:' + eptProcObj.TotalNoofPages + ',PagesOptimized:'+eptProcObj.PagesOptimized);
@@ -70,13 +72,19 @@ function parseArrayOfObjectsForDisplay(eptProcessedPagesObjectArray){
 
          //Way3 - Proceess 
          eptProcessedPagesObjectArray.forEach((eptProcObj,i) => { 
+
             console.log(`\n Row${i}  - Name: ${eptProcObj.Name} , TotalNoofPages:${eptProcObj.TotalNoofPages }, PagesOptimized:${eptProcObj.PagesOptimized } ,PagesNotOptimized:${eptProcObj.PagesNotOptimized}`)
-        });
+            rows.push(`Name: ${eptProcObj.Name} , TotalNoofPages:${eptProcObj.TotalNoofPages }, PagesOptimized:${eptProcObj.PagesOptimized } ,PagesNotOptimized:${eptProcObj.PagesNotOptimized}`)
+            //rows.push(eptProcObj.Name,eptProcObj.TotalNoofPages,eptProcObj.PagesOptimized,eptProcObj.PagesNotOptimized);
+            console.log(rows);
+          });
      }
+
 
      parseArrayOfObjectsForDisplay(jsonObject.summary.UserExperience);
      //parseArrayOfObjectsForDisplay(jsonObject.summary.BusinessLogic);
     // parseArrayOfObjectsForDisplay(jsonObject.summary.DataGoverness);
+
 
 
     
