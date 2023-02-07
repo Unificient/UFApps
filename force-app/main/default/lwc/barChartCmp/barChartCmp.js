@@ -1,9 +1,12 @@
-import { LightningElement, api} from 'lwc';
+import { LightningElement, api,wire} from 'lwc';
 import { loadScript, loadStyle } from 'lightning/platformResourceLoader';
 import D3 from '@salesforce/resourceUrl/d3';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+//import getMetricsJsonFromPlatformCache from'@salesforce/apex/uxMetricsReadFromCache.getMetricsJsonFromPlatformCache';
 
 export default class BarChartCmp extends LightningElement {
+    
+    //@wire(getMetricsJsonFromPlatformCache) eptdataFromApex;
     @api chartheight
     @api chartwidth
     @api eptdata
@@ -105,7 +108,7 @@ var colors = d3.scaleQuantile()
         .selectAll("rect")
         .data(this.eptdata)
         .join("rect")
-        .on("click", this.clickaction)
+        .on("click", this.svgd3clickaction)
         .transition()
         .duration(2000)
         .attr("width", data => scaleX(data.rt))
@@ -113,30 +116,34 @@ var colors = d3.scaleQuantile()
         .attr("y", data => scaleY(data.name))
         .attr("x", 0.5)
         .attr("fill", function(d){
-            if (d.ept > 3.0){
+            if (d.rt > 3.0){
                 return "#F3B2A5"
             }
             else {
                 return "#D4F3A5"
             }
         })
-    //bars.on("click", clickaction)
+    //bars.on("click", svgd3clickaction)
         //.style("stroke", "#000")
       
 }
-clickaction(d) {
-    console.log("clickaction:::"+d)
-    this.dispatchEvent(new CustomEvent('handleclick', { detail: d, bubbles: true }))
+svgd3clickaction(d) {
+    console.log(d);
+    console.log(JSON.stringify(d));
+    console.log(" Function  - svgd3clickaction:::"+d)
+    this.dispatchEvent(new CustomEvent('chartclicked', { detail: d, bubbles: true }))
 }
-handleclick(event) {
+chartclickedFunction(event) {
 
     const eptobj = event.detail;
-    console.log("in handleClick",eptobj)
+    console.log("Function chartclickedFunction",eptobj)
     // do dome stuff with this detail
     this.clicked = true
     this.netrtt = eptobj.network.rtt
-    //this.netdownlink = eptobj.network.downlink
-    this.prevpage = eptobj.previousPage.location
-    this.dispatchEvent(new CustomEvent('productclicked', { detail: eptobj, bubbles: true }))
+    this.netdownlink = eptobj.network.downlink
+    if(eptobj.previousPage && eptobj.previousPage.location){
+        this.prevpage = eptobj.previousPage.location
+    }
+    this.dispatchEvent(new CustomEvent('barchartclicked', { detail: eptobj, bubbles: true }))
     }
 }
