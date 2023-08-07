@@ -1,0 +1,100 @@
+<template>
+    <div class="slds-box slds-text-title" style="background-color:rgb(157, 167, 174);color:white">
+        
+            Account Insights
+
+    </div>
+        <template if:true={showAccountTable}>
+            <div class="slds-box aclist">
+        
+            <lightning-card title="List of Accounts" > 
+                        <lightning-datatable data={accountsList}
+                                            columns={accountsTable}
+                                            key-field="id"
+                                            show-row-number-column="false"
+                                            onclick={onclickShowChart}
+                                            onrowselection={selectedRows}>
+                        </lightning-datatable>
+                
+            </lightning-card>
+        </div>
+    </template>
+
+    <template if:true={showGrid}>
+       
+        <div class="slds-box">
+            <div class="slds-box aclist">
+                <lightning-datatable data={selectedAccountRow}
+                                        columns={selectedAccountTable}
+                                        key-field="id"
+                                        show-row-number-column="false"
+                                        hide-checkbox-column="true">
+                </lightning-datatable>
+            </div>
+            <div class="slds-col slds-float_right slds-m-bottom_large">
+                <lightning-button-icon icon-name="utility:close" size="medium" alternative-text="Indicates close" onclick={close}></lightning-button-icon> 
+            </div>
+            <div class="slds-box aclist slds-m-top_medium">
+               
+            <div class="slds-grid slds-gutters">
+                <div class="slds-box aclist slds-size_1-of-3 slds-m-right_medium">
+                    <lightning-icon icon-name="utility:contact" size="medium"></lightning-icon>
+                    <div class="slds-col slds-text-title_caps panelheader">
+                            Sum Of Opportunities
+                    </div>
+                    <div class="slds-col slds-text-title_caps panelcontent">
+                            {totalOpptyAmount}
+                    </div>
+                               
+                </div>
+                <div class="slds-box aclist slds-size_1-of-3 slds-m-right_medium">
+                    <lightning-icon icon-name="utility:opportunity" size="medium"></lightning-icon>
+                        <div class="slds-col slds-text-title_caps panelheader">
+                                Total Opportunities
+                        </div>
+                        <div class="slds-col slds-text-title_caps panelcontent">
+                            <a  onclick={handleOpptyClick}>    {OpptCount}  </a>
+                        </div>                     
+                </div>
+                <div class="slds-box aclist slds-size_1-of-3  slds-m-right_medium">
+                    <lightning-icon icon-name="utility:currency" size="medium"></lightning-icon>
+                    <div class="slds-col slds-text-title_caps panelheader">
+                            Total Contacts
+                    </div>
+                    <div class="slds-col slds-text-title_caps panelcontent"  data-id={accountIdInput}>
+                          <a  onclick={handleContactClick}>  {contactCount}  </a>
+                    </div>                       
+                </div>
+            </div>
+        </div>
+        </div>
+        
+    </template>
+    <template if:true={showContactOpptyName} >
+        <div class="slds-box">
+            <div class="slds-box aclist">
+                <lightning-datatable data={contactNameData}
+                                        columns={contactNameTable}
+                                        key-field="id"
+                                        show-row-number-column="false"
+                                        hide-checkbox-column="true">
+                </lightning-datatable>
+            </div>
+            </div>
+    </template>
+<template if:true={showOpptyName}>
+    <div class="slds-box">
+        <div class="slds-box aclist">
+            <lightning-datatable data={OpptyNameData}
+                                    columns={OpptyNameTable}
+                                    key-field="id"
+                                    show-row-number-column="false"
+                                    hide-checkbox-column="true">
+            </lightning-datatable>
+        </div>
+        </div>
+</template>
+
+</template>
+
+

@@ -1,0 +1,16 @@
+.aclist {
+    border-style:solid;
+    border-color: rgb(133, 134, 150);
+    border:1px;
+    box-shadow: 0 0 11px rgba(33,33,33,.1);
+}
+.panelheader {
+    font-size: medium;
+    font-style: normal;
+    font-weight: 500;
+    color:rgb(7,62,102);
+}
+.panelcontent {
+    font-size: medium;
+    font-style: normal;
+}
